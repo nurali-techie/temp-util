@@ -8,3 +8,9 @@ func TestUserName(t *testing.T) {
 		t.Errorf("UserName() = %q, want = %q", got, want)
 	}
 }
+
+func TestGeneratePassword(t *testing.T) {
+	if got := GeneratePassword(); len(got) == 0 {
+		t.Errorf("Invalid password generated")
+	}
+}
