@@ -1,6 +1,8 @@
 package util
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestUserName(t *testing.T) {
 	want := "nurali-virani-b"

@@ -2,27 +2,23 @@ package util
 
 import (
 	"fmt"
-	"math/rand"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // UserName joins given firstName, lastName, middleName and return string in UserName format
 func UserName(firstName, lastName, middleName string) string {
-	firstName = strings.TrimSpace(firstName)
-	lastName = strings.TrimSpace(lastName)
-	middleName = strings.TrimSpace(middleName)
+	firstName = strings.ToLower(strings.TrimSpace(firstName))
+	lastName = strings.ToLower(strings.TrimSpace(lastName))
+	middleName = strings.ToLower(strings.TrimSpace(middleName))
 
-	firstName = strings.ToLower(firstName)
-	lastName = strings.ToLower(lastName)
-	middleName = strings.ToLower(middleName)
-
-	initial := middleName[0]
-	return fmt.Sprintf("%s-%s-%c", firstName, lastName, initial)
+	initial := string(middleName[0])
+	return fmt.Sprintf("%s-%s-%s", firstName, lastName, initial)
 }
 
 func GeneratePassword() string {
-	return strconv.Itoa(rand.Intn(1000))
+	return strconv.Itoa(time.Now().Nanosecond())
 }
 
 func GenerateEmail(userName string) string {
