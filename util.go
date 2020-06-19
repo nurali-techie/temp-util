@@ -7,6 +7,11 @@ import (
 
 // UserName joins given firstName and lastName and return string in UserName format
 func UserName(firstName, lastName string) string {
-	name := fmt.Sprintf("%s-%s", strings.ToLower(firstName), strings.ToLower(lastName))
-	return name
+	firstName = strings.TrimSpace(firstName)
+	lastName = strings.TrimSpace(lastName)
+
+	firstName = strings.ToLower(firstName)
+	lastName = strings.ToLower(lastName)
+
+	return fmt.Sprintf("%s-%s", firstName, lastName)
 }
