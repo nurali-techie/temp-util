@@ -2,6 +2,8 @@ package util
 
 import (
 	"fmt"
+	"math/rand"
+	"strconv"
 	"strings"
 )
 
@@ -14,4 +16,8 @@ func UserName(firstName, lastName string) string {
 	lastName = strings.ToLower(lastName)
 
 	return fmt.Sprintf("%s-%s", firstName, lastName)
+}
+
+func GeneratePassword() string {
+	return strconv.Itoa(rand.Intn(1000))
 }
